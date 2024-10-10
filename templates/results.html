@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>コメント結果</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #999;
+            padding: 0.5rem;
+            text-align: left;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+    <h1>コメント結果</h1>
+    {% for comment in comments %}
+        <h2>配信URL: <a href="{{ comment.broadcast_url }}">{{ comment.broadcast_url }}</a></h2>
+        <table>
+            <tr>
+                <th>コメント日時</th>
+                <th>コメントユーザー名</th>
+                <th>コメントユーザーURL</th>
+                <th>コメント内容</th>
+            </tr>
+            <tr>
+                <td>{{ comment.comment_time }}</td>
+                <td>{{ comment.commenter_name }}</td>
+                <td><a href="{{ comment.commenter_url }}">{{ comment.commenter_url }}</a></td>
+                <td>{{ comment.comment_text }}</td>
+            </tr>
+        </table>
+    {% endfor %}
+</body>
+</html>
